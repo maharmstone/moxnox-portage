@@ -43,6 +43,8 @@ src_install() {
 	insinto /usr/${CTARGET}/usr/include
 	doins -r include/.
 
+	dosym usr/include /usr/${CTARGET}/sys-include
+
 	# Win32-tier headers for the crtstuff/unwinder parts of libgcc
 	# (t-moxnox reaches them via -idirafter =/mingw-compat/include),
 	# so these are needed even for a headers-only bootstrap stage
