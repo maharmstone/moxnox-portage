@@ -13,6 +13,8 @@ string(APPEND CMAKE_EXE_LINKER_FLAGS_INIT " -Wl,--enable-auto-import")
 set(CMAKE_GNULD_IMAGE_VERSION
   "-Wl,--major-image-version,<TARGET_VERSION_MAJOR>,--minor-image-version,<TARGET_VERSION_MINOR>")
 
+set(CMAKE_LINK_DEF_FILE_FLAG "") # Empty string: passing the file is enough
+
 macro(__moxnox_compiler_gnu lang)
   # Binary link rules.
   set(CMAKE_${lang}_CREATE_SHARED_MODULE
