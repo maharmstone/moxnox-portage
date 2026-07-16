@@ -1,1 +1,1 @@
-include(Platform/Moxnox-GNU-C)
+include(Platform/Moxnox-GNU-ASM)

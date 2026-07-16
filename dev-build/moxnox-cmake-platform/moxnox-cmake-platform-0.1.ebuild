@@ -20,6 +20,7 @@ src_install() {
 		"${FILESDIR}"/Moxnox-GNU.cmake \
 		"${FILESDIR}"/Moxnox-GNU-C.cmake \
 		"${FILESDIR}"/Moxnox-GNU-CXX.cmake \
+		"${FILESDIR}"/Moxnox-GNU-ASM.cmake \
 		"${FILESDIR}"/Moxnox-Clang-C.cmake \
 		"${FILESDIR}"/Moxnox-Clang-CXX.cmake \
 		"${FILESDIR}"/Moxnox-Clang-ASM.cmake
