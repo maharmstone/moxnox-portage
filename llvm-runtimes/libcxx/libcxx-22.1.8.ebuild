@@ -70,15 +70,18 @@ test_compiler() {
 }
 
 src_configure() {
-	local install_prefix=${EPREFIX}
-	is_crosspkg && install_prefix+=/usr/${CTARGET}
-
 	# note: we need to do this before multilib kicks in since it will
 	# alter the CHOST
 	local cxxabi cxxabi_incs
 	if use libcxxabi; then
 		cxxabi=system-libcxxabi
-		cxxabi_incs="${install_prefix}/usr/include/c++/v1"
+		if is_crosspkg; then
+			cxxabi_incs="${EPREFIX}/usr/${CTARGET}/usr/include/c++/v1"
+		else
+			# ESYSROOT points into the sysroot for ${CHOST}-emerge
+			# builds and at / for host builds
+			cxxabi_incs="${ESYSROOT}/usr/include/c++/v1"
+		fi
 	else
 		local gcc_inc="${EPREFIX}/usr/lib/gcc/${CHOST}/$(gcc-fullversion)/include/g++-v$(gcc-major-version)"
 		cxxabi=libsupc++
